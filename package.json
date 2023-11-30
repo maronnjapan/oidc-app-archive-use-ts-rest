@@ -11,6 +11,7 @@
         "prepare": "npm run compile",
         "compile": "tsc -b tsconfig.json ",
         "start:dev:api": "npm run start:dev -w @monorepo-firebase/backend",
+        "build:dev:api": "npm run build -w @monorepo-firebase/backend",
         "start:app": "npm run dev -w @monorepo-firebase/frontend"
     },
     "dependencies": {
