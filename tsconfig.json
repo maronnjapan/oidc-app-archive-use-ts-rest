@@ -5,10 +5,10 @@
       "path": "packages/ts-router"
     },
     {
-      "path": "packages/backend"
+      "path": "backend"
     },
     {
-      "path": "packages/frontend"
+      "path": "frontend"
     },
   ],
   "compilerOptions": {

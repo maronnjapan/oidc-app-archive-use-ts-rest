@@ -4,8 +4,8 @@
     "private": true,
     "workspaces": [
         "packages/ts-router",
-        "packages/backend",
-        "packages/frontend"
+        "backend",
+        "frontend"
     ],
     "scripts": {
         "prepare": "npm run compile",
