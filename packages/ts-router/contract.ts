@@ -19,7 +19,7 @@ export const tsRestRoute = c.router({
     // },
     login: {
         method: 'POST',
-        path: '/api/login',
+        path: '/login',
         responses: {
             201: z.undefined()
         },
@@ -29,7 +29,7 @@ export const tsRestRoute = c.router({
     },
     logout: {
         method: 'POST',
-        path: '/api/logout',
+        path: '/logout',
         responses: {
             201: z.null()
         },
@@ -37,14 +37,14 @@ export const tsRestRoute = c.router({
     },
     getUserInfo: {
         method: 'GET',
-        path: '/api/users/me',
+        path: '/users/me',
         responses: {
             200: UserInfo
         },
     },
     deleteUser: {
         method: 'DELETE',
-        path: '/api/users/me',
+        path: '/users/me',
         responses: {
             204: null
         },
