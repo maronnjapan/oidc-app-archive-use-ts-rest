@@ -2,8 +2,8 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { generateOpenApi } from '@ts-rest/open-api';
 import { SwaggerModule } from '@nestjs/swagger';
-import { tsRestRoute } from '@monorepo-firebase/ts-router/dist';
 import * as cookieParser from 'cookie-parser';
+import { tsRestRoute } from '@monorepo-oidc-app/ts-router/dist';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

@@ -1,5 +1,5 @@
 {
-    "name": "@monorepo-firebase",
+    "name": "@monorepo-oidc-app",
     "description": "モノレポのfirebaseプロジェクトです",
     "private": true,
     "workspaces": [
@@ -7,14 +7,28 @@
         "backend",
         "frontend"
     ],
+    "watch": {
+        "restart": {
+            "patterns": [
+                "packages/ts-router"
+            ],
+            "extensions": "ts",
+            "ignore": "packages/ts-router/dist/*"
+        }
+    },
     "scripts": {
+        "restart": "npm run compile &&  ( npm run start:app & npm run start:dev:api)",
+        "watch": "npm-watch",
         "prepare": "npm run compile",
         "compile": "tsc -b tsconfig.json ",
-        "start:dev:api": "npm run start:dev -w @monorepo-firebase/backend",
-        "build:dev:api": "npm run build -w @monorepo-firebase/backend",
-        "start:app": "npm run dev -w @monorepo-firebase/frontend"
+        "start:dev:api": "npm run start:dev -w @monorepo-oidc-app/backend",
+        "build:dev:api": "npm run build -w @monorepo-oidc-app/backend",
+        "start:app": "npm run dev -w @monorepo-oidc-app/frontend"
     },
     "dependencies": {
         "typescript": "^5.2.2"
+    },
+    "devDependencies": {
+        "npm-watch": "^0.11.0"
     }
 }

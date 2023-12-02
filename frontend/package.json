@@ -1,5 +1,5 @@
 {
-  "name": "@monorepo-firebase/frontend",
+  "name": "@monorepo-oidc-app/frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@monorepo-firebase/ts-router": "^1.0.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/roboto": "^5.0.8",
+    "@monorepo-oidc-app/ts-router": "^1.0.0",
+    "@mui/icons-material": "^5.14.19",
+    "@mui/material": "^5.14.19",
     "@tanstack/react-query": "^4.36.1",
     "@ts-rest/react-query": "^3.30.4",
     "react": "^18.2.0",

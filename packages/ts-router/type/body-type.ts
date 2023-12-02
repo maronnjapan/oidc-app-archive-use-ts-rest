@@ -1,5 +1,6 @@
 import { z } from "zod"
 
 export const Login = z.object({
-    idToken: z.string(),
+    email: z.string(),
+    password: z.string()
 });

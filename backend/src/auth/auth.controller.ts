@@ -10,6 +10,7 @@ export class AuthController {
     @TsRestHandler(c.login)
     async login(@Res({ passthrough: true }) response: Response) {
         return tsRestHandler(c.login, async ({ body }) => {
+            console.log(body)
             const expiresIn = 5 * 60 * 1000;
             try {
                 const options = {

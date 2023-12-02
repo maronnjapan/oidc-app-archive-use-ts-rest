@@ -1,4 +1,4 @@
-import { tsRestRoute } from '@monorepo-firebase/ts-router';
+import { tsRestRoute } from '@monorepo-oidc-app/ts-router';
 import { initQueryClient } from '@ts-rest/react-query';
 
 export const tsRestClient = initQueryClient(tsRestRoute, {
