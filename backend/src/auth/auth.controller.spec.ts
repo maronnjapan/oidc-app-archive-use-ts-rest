@@ -18,9 +18,6 @@ describe('AuthController', () => {
     const prisma = module.get(PrismaService)
 
     const allProperties = Object.keys(prisma);
-    console.log(allProperties)
-    // 関数たちを取り除いたものがモデル名
-    // 関数は全て "$" "_" 始まりなのを利用している
     const modelNames = allProperties.filter(
       (x) => !(typeof x === "string" && (x.startsWith("$") || x.startsWith("_")))
     );
