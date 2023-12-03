@@ -1,14 +1,18 @@
 import { BadRequestException, Controller, Req, Res } from '@nestjs/common';
 import { TsRestHandler, tsRestHandler } from '@ts-rest/nest';
 import { Request, Response } from 'express';
-import { c } from 'src/contract';
+import { c } from '../contract';
+import { PrismaService } from '../prisma/prisma.service';
 
 
 @Controller()
 export class AuthController {
 
+    constructor(private prismaService: PrismaService) { }
+
     @TsRestHandler(c.login)
     async login(@Res({ passthrough: true }) response: Response) {
+        console.log(await this.prismaService.user.findMany())
         return tsRestHandler(c.login, async ({ body }) => {
             const expiresIn = 5 * 60 * 1000;
             try {

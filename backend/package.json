@@ -12,6 +12,9 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
+    "db:push:local": "npx prisma-import -f -s ./prisma/models/{base,product}.prisma -o ./prisma/schema.prisma && prisma db push && npx prisma-import -f -s ./prisma/models/{base,test}.prisma -o ./prisma/schema_test.prisma && prisma db push --schema=./prisma/schema_test.prisma",
+    "db:studio:test": "prisma studio --schema=./prisma/schema_test.prisma",
+    "db:studio": "prisma studio",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "merge:schema": "npx prisma-import -f",
     "test": "jest",
@@ -19,12 +22,6 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json"
-  },
-  "prisma": {
-    "import": {
-      "schemas": "./prisma/models/{base,product}.prisma",
-      "output": "./prisma/schema.prisma"
-    }
   },
   "dependencies": {
     "@monorepo-oidc-app/ts-router": "^1.0.0",
