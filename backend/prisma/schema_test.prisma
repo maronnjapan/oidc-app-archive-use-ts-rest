@@ -4,7 +4,7 @@
 //
 
 //
-// test.prisma
+// schema_test.prisma
 //
 
 generator client {
@@ -17,11 +17,26 @@ datasource db {
 }
 
 //
-// base.prisma
+// models.prisma
 //
+
+model Ant {
+  user_id String @unique
+  test_id String
+  user    User   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  test    Test   @relation(fields: [test_id], references: [test_id], onDelete: Cascade)
+
+  @@id([user_id, test_id])
+}
 
 model User {
   id       String @id @default(uuid())
   email    String
   password String
+  ant      Ant?
+}
+
+model Test {
+  test_id String @id @default(uuid())
+  ant     Ant[]
 }
