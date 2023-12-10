@@ -35,7 +35,7 @@ export class UsersController {
             res.clearCookie('sessionToken')
             return {
                 body: null,
-                status: 201
+                status: 204
             }
         })
     }
