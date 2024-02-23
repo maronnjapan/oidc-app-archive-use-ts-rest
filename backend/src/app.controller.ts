@@ -1,19 +1,26 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 import { TsRestHandler, tsRestHandler } from '@ts-rest/nest';
 import { c } from './contract';
+import { PrismaService } from './prisma/prisma.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) { }
+  constructor(private readonly prismaService: PrismaService) { }
 
-  // @TsRestHandler(c.hello)
-  // async getHello() {
-  //   return tsRestHandler(c.hello, async () => {
-  //     return {
-  //       status: 200,
-  //       body: { name: 'Hello' }
-  //     }
-  //   })
-  // }
+  @Get(c.hello.path)
+  @TsRestHandler(c.hello)
+  async getHello() {
+    return tsRestHandler(c.hello, async () => {
+      return {
+        status: 200,
+        body: { name: 'Hello' }
+      }
+    })
+  }
+
+  @Get('/user/test')
+  async getUsers() {
+    return await this.prismaService.user.findMany()
+  }
 }

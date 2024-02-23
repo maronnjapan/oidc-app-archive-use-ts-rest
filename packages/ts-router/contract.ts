@@ -8,15 +8,15 @@ const c = initContract();
 
 
 export const tsRestRoute = c.router({
-    // hello: {
-    //     method: 'GET',
-    //     path: '/api',
-    //     responses: {
-    //         200: z.object({
-    //             name: z.string()
-    //         })
-    //     }
-    // },
+    hello: {
+        method: 'GET',
+        path: '/api',
+        responses: {
+            200: z.object({
+                name: z.string()
+            })
+        }
+    },
     login: {
         method: 'POST',
         path: '/login',

@@ -12,7 +12,7 @@ export class UsersController {
     async getLoginUserInfo(@Cookies('sessionToken') session: string) {
         return tsRestHandler(c.getUserInfo, async () => {
             if (!session) {
-                throw new UnauthorizedException('invalid_session');
+                throw new UnauthorizedException('invalid_session')
             }
             try {
 

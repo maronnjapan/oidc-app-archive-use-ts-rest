@@ -1,22 +1,22 @@
-// import { Test, TestingModule } from '@nestjs/testing';
-// import { AppController } from './app.controller';
-// import { AppService } from './app.service';
+import { Test, TestingModule } from '@nestjs/testing';
+import { AppController } from './app.controller';
+import { PrismaService } from './prisma/prisma.service';
 
-// describe('AppController', () => {
-//   let appController: AppController;
+describe('AppController', () => {
+    let appController: AppController;
 
-//   beforeEach(async () => {
-//     const app: TestingModule = await Test.createTestingModule({
-//       controllers: [AppController],
-//       providers: [AppService],
-//     }).compile();
+    beforeEach(async () => {
+        const app: TestingModule = await Test.createTestingModule({
+            controllers: [AppController],
+            providers: [PrismaService],
+        }).compile();
 
-//     appController = app.get<AppController>(AppController);
-//   });
+        appController = app.get<AppController>(AppController);
+    });
 
-//   describe('root', () => {
-//     it('should return "Hello World!"', () => {
-//       expect(appController.getHello()).toBe('Hello World!');
-//     });
-//   });
-// });
+    it('ユーザーを取得できること', async () => {
+        const result = await appController.getHello();
+        const res = await result({ headers: {} });
+        expect(result).toHaveLength(1)
+    })
+});

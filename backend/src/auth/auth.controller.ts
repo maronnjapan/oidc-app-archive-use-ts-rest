@@ -1,8 +1,8 @@
 import { BadRequestException, Controller, Req, Res } from '@nestjs/common';
 import { TsRestHandler, tsRestHandler } from '@ts-rest/nest';
 import { Request, Response } from 'express';
-import { c } from '../contract';
 import { PrismaService } from '../prisma/prisma.service';
+import { c } from 'src/contract';
 
 
 @Controller()
