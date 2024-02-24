@@ -10,10 +10,10 @@ export class AppController {
   @TsRestHandler(c.getPost)
   getHello() {
     return tsRestHandler(c.getPost, async () => {
-      const user = await this.prismaService.user.findFirst();
+      const user = await this.prismaService.user.findFirst({});
       return {
         status: 200,
-        body: { title: 'タイトル', id: 'id', body: user.email }
+        body: { title: 'タイトル', id: 'id', body: user?.email ?? 'test' }
       }
     })
   }

@@ -5,6 +5,7 @@ import { Code } from "@repo/ui/code";
 import styles from "./page.module.css";
 import { Button } from "@repo/ui/button";
 import { tsRestClient } from "../ts-rest-client";
+import { Link } from "@chakra-ui/react";
 
 
 function Gradient({
@@ -61,7 +62,11 @@ export default function Page(): JSX.Element {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
-        {data?.body?.title ?? 'そんなものはない'}
+        <Link href='/about' color='blue.400' _hover={{ color: 'blue.500' }}>
+          {data?.body?.title ?? 'そんなものはない'}
+
+        </Link>
+
         <p>
           examples/basic&nbsp;
           <Code className={styles.code}>web</Code>
