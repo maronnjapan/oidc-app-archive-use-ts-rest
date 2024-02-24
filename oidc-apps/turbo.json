@@ -1,0 +1,39 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    "**/.env.*local"
+  ],
+  "pipeline": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**"
+      ]
+    },
+    "lint": {
+      "dependsOn": [
+        "^lint"
+      ]
+    },
+    "dev": {
+      "cache": false,
+      "dependsOn": [
+        "^dev"
+      ]
+    },
+    "@repo/ts-rest#dev": {},
+    "api#dev": {
+      "dependsOn": [
+        "@repo/ts-rest#dev"
+      ]
+    },
+    "web#dev": {
+      "dependsOn": [
+        "@repo/ts-rest#dev"
+      ]
+    }
+  }
+}

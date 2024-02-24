@@ -1,0 +1,32 @@
+{
+  "name": "oidc-apps",
+  "private": true,
+  "watch": {
+    "dev": {
+      "patterns": [
+        "packages/ts-rest"
+      ],
+      "extensions": "ts",
+      "ignore": "packages/ts-rest/dist/*",
+      "inherit": true
+    }
+  },
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev --force",
+    "watch": "npm-watch",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "npm-watch": "^0.11.0",
+    "prettier": "^3.1.1",
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=18"
+  }
+}
