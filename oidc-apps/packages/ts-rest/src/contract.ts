@@ -2,6 +2,7 @@
 
 import { initContract } from '@ts-rest/core';
 import { z } from 'zod';
+import { loginSchem } from './types/auth';
 
 const c = initContract();
 
@@ -12,17 +13,12 @@ const PostSchema = z.object({
 });
 
 export const contract = c.router({
-    createPost: {
+    login: {
         method: 'POST',
-        path: '/posts',
-        responses: {
-            201: PostSchema,
-        },
-        body: z.object({
-            title: z.string(),
-            body: z.string(),
-        }),
-        summary: 'Create a post',
+        path: '/login',
+        body: loginSchem,
+        responses: { 201: null },
+        description: 'ログイン処理を行うAPI'
     },
     getPost: {
         method: 'GET',
