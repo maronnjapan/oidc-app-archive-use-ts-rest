@@ -1,8 +1,11 @@
+"use client"
 import Image from "next/image";
 import { Card } from "@repo/ui/card";
 import { Code } from "@repo/ui/code";
 import styles from "./page.module.css";
 import { Button } from "@repo/ui/button";
+import { tsRestClient } from "../ts-rest-client";
+
 
 function Gradient({
   conic,
@@ -52,9 +55,13 @@ const LINKS = [
 ];
 
 export default function Page(): JSX.Element {
+  const { data, error } = tsRestClient.getPost.useQuery(['getPost'], { query: { q: 'test' } })
+
+  console.log(error)
   return (
     <main className={styles.main}>
       <div className={styles.description}>
+        {data?.body?.title ?? 'そんなものはない'}
         <p>
           examples/basic&nbsp;
           <Code className={styles.code}>web</Code>
