@@ -73,10 +73,6 @@
     "setupFilesAfterEnv": [
       "<rootDir>/../test/setup-jest.ts"
     ],
-    "moduleDirectories": [
-      "node_modules",
-      "src"
-    ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   }
