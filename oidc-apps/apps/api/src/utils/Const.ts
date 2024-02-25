@@ -1,0 +1,1 @@
+export const AUTHENTICATE_KEY = 'd4f437b4-1d27-bc93-3a8a-4f8c7df63394'

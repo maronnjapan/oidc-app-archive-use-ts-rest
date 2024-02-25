@@ -8,6 +8,7 @@ import { INestApplication } from '@nestjs/common';
 import { c } from '../contract';
 import { PrismaService } from '@/prisma/prisma.service';
 import { noop } from 'rxjs';
+import { AUTHENTICATE_KEY } from '@/utils/Const';
 
 describe('AuthController', () => {
   let controller: AuthController;
@@ -47,7 +48,7 @@ describe('AuthController', () => {
       expect(res.status).toEqual(201);
 
       expect(res.headers['set-cookie']).toHaveLength(1)
-      expect(res.headers['set-cookie'][0]).toContain('sessionStore=')
+      expect(res.headers['set-cookie'][0]).toContain(AUTHENTICATE_KEY)
 
     })
     it('一致するユーザーが存在しない場合は404エラーを返すこと', async () => {

@@ -3,6 +3,7 @@ import { TsRestHandler, tsRestHandler } from '@ts-rest/nest';
 import { Response } from 'express';
 import { c } from '../contract';
 import { AuthService } from './auth.service';
+import { AUTHENTICATE_KEY } from '@/utils/Const';
 
 @Controller()
 export class AuthController {
@@ -16,7 +17,7 @@ export class AuthController {
             if (!user) {
                 throw new NotFoundException()
             }
-            res.cookie('sessionStore', 'test');
+            res.cookie(AUTHENTICATE_KEY, 'test');
             return {
                 status: 201,
                 body: null
