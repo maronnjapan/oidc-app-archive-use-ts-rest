@@ -30,6 +30,7 @@
     "@repo/ts-rest": "workspace:*",
     "@ts-rest/nest": "^3.33.0",
     "@ts-rest/open-api": "^3.33.0",
+    "argon2": "^0.40.1",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
   },

@@ -2,7 +2,7 @@
 
 import { initContract } from '@ts-rest/core';
 import { z } from 'zod';
-import { loginSchem } from './types/auth';
+import { loginSchem, registerSchem } from './types/auth';
 
 const c = initContract();
 
@@ -19,6 +19,13 @@ export const contract = c.router({
         body: loginSchem,
         responses: { 201: null },
         description: 'ログイン処理を行うAPI'
+    },
+    retister: {
+        method: 'POST',
+        path: '/register',
+        body: registerSchem,
+        responses: { 201: null },
+        description: 'ユーザー情報登録API'
     },
     getPost: {
         method: 'GET',
