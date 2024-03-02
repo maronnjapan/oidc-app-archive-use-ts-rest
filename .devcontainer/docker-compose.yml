@@ -31,5 +31,39 @@ services:
     # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
+  dynamodb-local:
+    container_name: dynamodb-local
+    image: amazon/dynamodb-local:latest
+    user: root
+    command: -jar DynamoDBLocal.jar -sharedDb -dbPath /data
+    environment:
+      AWS_ACCESS_KEY_ID: "dummy"
+      AWS_SECRET_ACCESS_KEY: "dummy"
+      AWS_DEFAULT_REGION: "ap-northeast-1"
+    volumes:
+      - dynamodb-data:/data
+    ports:
+      - 8000:8000
+    # networks:
+    #   - dynamodb-network
+  dynamodb-admin:
+    container_name: dynamodb-admin
+    image: aaronshaf/dynamodb-admin:latest
+    environment:
+      - DYNAMO_ENDPOINT=dynamodb-local:8000
+    ports:
+      - 8001:8001
+    depends_on:
+      - dynamodb-local
+    # networks:
+    #   - dynamodb-network
+
 volumes:
   postgres-data:
+    name: postgres-data
+  dynamodb-data:
+    name: dynamodb-data
+
+networks:
+  dynamodb-network:
+    driver: bridge

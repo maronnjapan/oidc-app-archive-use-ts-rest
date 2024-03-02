@@ -7,7 +7,6 @@ import * as request from 'supertest';
 import { INestApplication } from '@nestjs/common';
 import { c } from '../contract';
 import { PrismaService } from '@/prisma/prisma.service';
-import { noop } from 'rxjs';
 import { AUTHENTICATE_KEY } from '@/utils/Const';
 
 describe('AuthController', () => {

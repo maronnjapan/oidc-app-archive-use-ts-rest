@@ -1,0 +1,19 @@
+{
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "id",
+            "AttributeType": "S"
+        }
+    ],
+    "TableName": "authorize_client",
+    "KeySchema": [
+        {
+            "AttributeName": "id2",
+            "KeyType": "HASH"
+        }
+    ],
+    "ProvisionedThroughput": {
+        "ReadCapacityUnits": 5,
+        "WriteCapacityUnits": 5
+    }
+}

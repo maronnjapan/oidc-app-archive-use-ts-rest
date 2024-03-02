@@ -1,0 +1,15 @@
+AttributeDefinitions:
+# 初期の時はキーとして設定するカラムの定義だけでよい
+# 追加は後でアプリ実行時に行う
+# https://knyacki.hatenablog.com/entry/2017/10/21/103513
+  - AttributeName: state
+    AttributeType: S
+
+KeySchema:
+  - AttributeName: state
+    KeyType: HASH
+
+ProvisionedThroughput:
+  ReadCapacityUnits: 1
+  WriteCapacityUnits: 1
+TableName: authorize_client
